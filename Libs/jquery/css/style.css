@@ -1,0 +1,303 @@
+body
+{
+	background: url(images/fondo-posicionamiento.jpg);
+	background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    margin:0 auto 0 auto;
+    margin-top:0.4em;
+    margin-bottom:0.4em;
+    max-width:1000px;
+    width:1000px;
+    
+}
+#main {
+	padding: 8px;
+	z-index: 9999;
+	max-width:1000px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+	width: 1000px;
+	background-color:#FBF5D0;
+	margin:0 auto 0 auto; 
+	border-radius: 9px 9px 9px 9px;
+	
+	
+}
+
+#fmain, #errores, #espera, #faqs, #informacion{
+	font-family:"Eras Light ITC";
+	font-size:15px;
+	font-weight:bold;
+}
+
+#datos p, #datos{
+	font-family:"Gill Sans MT";
+	font-size:13px;
+}
+
+
+
+h1{
+	margin-left:40px;
+	margin-top:0px;
+	margin-bottom: 0px;
+	font-family:"Major snafu";
+	font-size:2em;
+	color: #ffffff;
+	text-shadow: 1px 2px 3px #000000;
+}
+
+h4{
+	font-family:"Eras Light ITC";
+	margin-top:0px;
+	margin-left:100px;
+	font-size:15px;
+	text-shadow: 1px 1px 2px #FFF;
+	color:#2B2B2B;
+}
+#h{
+	float:left;
+}
+
+#logo {
+	float:right;
+	margin-top: 0px;
+	margin-right:40px;
+	}
+
+#divForm{
+	margin-top:15px;
+	margin-bottom:15px;
+	text-align: center;
+}
+
+#header{
+	text-align:left;
+	height:100px;
+	border: 1px solid #3f7506;
+	border-bottom:1px solid #000000;
+	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
+	border-radius: 9px 9px 0px 0px;
+	font-weight: bold;
+}
+#datos{
+	margin-top:10px;
+	margin-bottom:0px;
+	text-align:left;
+}
+
+#datos fieldset{
+	text-align:center;
+	display:compact;
+}
+fieldset, #fmain{border-color:#3A8104; margin-bottom: 0px;}
+
+#botones, #botonesSVG, #botonesJPG{
+	border-radius:0px 0px 6px 6px;
+	border-style:groove;
+	position:relative;
+	left:1px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+#icon-folder{
+	float:left;
+}
+#fmain{margin-top: 35px;}
+
+#file{
+	margin-top: 5px;
+	border-style: solid;
+	border-width:1px;
+	border-radius:6px 6px 6px 6px;
+	background-color: #FFFFFF;
+}
+hr{margin-bottom:5px;}
+#submit, #areasButton{
+	margin-top:3px;
+	margin-bottom:3px;
+	border-radius: 6px 6px 6px 6px;
+	display:inline-block;
+}
+#nombre{
+	width: 240px;
+	height: 1.2em;
+	border-radius: 0px 6px 6px 0px;
+}
+
+#errores{
+	text-align:left;
+	color:#FF0000;
+	max-width:280px;
+	margin-bottom:10px;
+	margin-left:360px;
+}
+
+#faqs, #informacion{
+	display:none;
+	background:#363636;
+	padding:3px;
+	margin-bottom: 5px;
+	position:relative;
+}
+#faqs p, #informacion p{
+	margin-left: 10px;
+}
+#menu{
+	margin-top:0px;
+}
+#datos #inf{
+	border-radius: 10px 0px 0px 10px;
+	border:1px solid;
+	border-color:#FFFFFF;
+	float:left;
+	text-align:center;
+	padding:3px;
+	display:inline-block;
+	width: 203px;
+	background-color:#AAAAAA;
+	box-shadow: 2px 2px 6px #000;
+	margin-left: 23px;
+}
+
+#datos #infarea{
+	border-radius: 0px 10px 10px 0px;
+	border:1px solid;
+	border-color:#FFFFFF;
+	float:right;
+	text-align:center;
+	padding:3px;
+	display:inline-block;
+	width: 203px;
+	max-width: 203px;
+	background-color:#AAAAAA;
+	box-shadow: 2px 2px 6px #000;
+	margin-right: 23px;
+}
+
+div.espera{
+	text-align:center;
+	width:100%;
+	-webkit-animation:anim2 0.3s linear 0s infinite alternate;
+	font-family:"Eras Light ITC";
+	font-weight:bold;
+	color:#008000;
+}
+@-webkit-keyframes anim2
+{
+0%   {color:#FBF5D0;}
+75%  {color:green;}
+100% {color:green;}
+}
+#mensaje{
+	font-family:"Eras Light ITC";
+	padding:3px;
+	display:inline-block;
+	box-shadow: 2px 2px 6px #000;
+	-webkit-animation:anim 1s linear 0s infinite alternate;
+	background:#363636;
+	border-radius: 0px 6px 6px 0px;
+}
+
+@-webkit-keyframes anim
+{
+0%   {color:#363636;}
+75%  {color:green;}
+100% {color:green;}
+}
+
+polygon.ar{
+	display:none;
+	opacity:0.5;
+}
+
+polygon.inter{
+	display: none;
+	-webkit-animation:anim2 1s linear 0s infinite alternate;
+}
+
+p.mejorada, hr.mejorada{
+	display: none;
+}
+
+@-webkit-keyframes anim2
+{
+0%   {opacity: 0.0;}
+75%  {opacity: 0.85;}
+100% {opacity: 1.0;}
+}
+
+.svg{
+	background-color:#000000;
+	border: 2px solid grey;
+	border-radius: 3px 3px 3px 3px;
+}
+#botonFunciona, #info, #atras{
+	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
+	position: relative;
+	right:2px;
+	box-shadow: 0px 2px 6px #000;
+	color:#000000;
+	border:none;
+	height:20px;
+	border-radius: 0px 0px 0px 6px;
+	margin:0px;
+	bottom:0px;
+	float:right;
+}
+
+#exportarBoton{
+	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
+	color:#000000;
+	border:none;
+	height:25px;
+}
+
+input, #atras, #areasButton, #botones, #botonesSVG, #botonesJPG{
+	cursor: pointer !important;
+}
+#faqs, #informacion, {color:#FBF5D0;}
+#botonFunciona:hover, #info:hover, #atras:hover {color: #FFFFFF;}
+#submit:hover, #areasButton:hover, #botones:hover, #botonFunciona:hover,#botonesSVG:hover, #botonesJPG:hover{
+	color:#FFFFFF;
+	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
+}
+#twitter{
+	position:relative;
+	top:2px;
+	left:10px;
+}
+#footer{
+	color:#999999;
+	text-align:center;
+	font-size:small;
+	background-color:#285C00;
+	border-radius:0px 0px 9px 9px;
+	margin-top:5px;
+}
+
+.pdf {
+     background: url(images/pdf-icon.png) no-repeat;
+     background-position: bottom left;
+     background-attachment: scroll;
+     padding-left: 20px;
+}
+
+.svgIcon{
+	background: url(images/svg-icon.png) no-repeat;
+	background-size: 18px;
+    background-position: bottom left;
+    background-attachment: scroll;
+    padding-left: 20px;
+}
+
+.jpg{
+	background: url(images/jpg-icon.png) no-repeat;
+	background-size: 18px;
+    background-position: bottom left;
+    background-attachment: scroll;
+    padding-left: 20px;
+}

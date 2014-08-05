@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<title>{{ nombreFichero.upper() }}. Zonas de visi&oacute;n</title>
+	<head>
+		<link rel="shortcut icon" href="Libs/jquery/css/images/logo1.png" type="image/png"/>
+		<script src="Libs/jquery/jquery-ui-1.11.0.custom/jquery-ui.js" type="text/javascript"></script>
+		<script src="Libs/jquery/jquery-ui-1.11.0.custom/jquery-ui.min.js" type="text/javascript"></script>
+		<script src="Libs/jquery/js/jquery.js" type="text/javascript"></script>
+		<script src="JS/d3.v3.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/jspdf.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/libs/adler32cs/adler32cs.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/libs/FileSaver/FileSaver.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/libs/Blob/Blob.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/jspdf.plugin.addimage.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/jspdf.plugin.standard_fonts_metrics.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/jspdf.plugin.split_text_to_size.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/jspdf.plugin.from_html.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/examples/js/basic.js" type="text/javascript"></script>
+		<script src="JS/jspdf/libs/sprintf.js" type="text/javascript"></script>
+		<script src="JS/jspdf/libs/base64.js" type="text/javascript"></script>
+		<script src="JS/jsPDF-master/svgToPdf.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script> 
+		<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script>
+		<script type="text/javascript" src="JS/funciones.js"></script>
+		<script type="text/javascript" src="JS/html2canvas.js"></script>
+		<script type="text/javascript" src="JS/canvas2image.js"></script>
+		<link rel="stylesheet" type="text/css" href="Libs/jquery/css/style.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="Libs/jquery/jquery-ui-1.11.0.custom/jquery-ui.css" media="screen" />
+		<script>
+			var pol = '{{ poligono }}';
+			var escala = '{{ escala }}'; 
+			var visioness = '{{ visiones }}';
+			var interss = '{{ intersecciones }}';
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="header">
+				<div id="h">
+					<h1>POSICIONAMIENTO <br />TOPOGR&Aacute;FICO</h1>
+					<h4>C&aacute;lculo de las &aacute;reas de visi&oacute;n de cualquier superficie</h4>
+				</div>
+				<img id="logo" src="Libs/jquery/css/images/logo1.png" height="100" width="100">
+			</div>
+			<menu id ="menu">
+				<div id="atras" class="ui-widget-header" style="display:inline-block; padding: 4px; padding-bottom: 0px;">
+						<span style="float:right;font-family:Eras Light ITC; margin-right: 3px;">Nuevo</span>
+						<a href="#" class="ui-icon ui-icon-plus" onclick="volver();"></a>
+				</div>
+			</menu>
+			<div>
+				<div id="mensaje">{{ nombreFichero.upper() }} se envi&oacute; correctamente.</div>
+				<div id="datos">
+					<fieldset>
+  						<legend>Datos de la superficie</legend>
+  						<div id = "inf">
+  							<p><h3 id="name" style="font-weight:bold;">{{ nombreFichero.upper() }}</h3></p>
+	  						<p>{{ numeroAreas }} zonas de visi&oacute;n</p>
+	  						<hr style="color: #0056b2;" />
+							<input id="areasButton" type="button" onclick="aparecenAreas()" value="Mostrar" />
+							<hr style="color: #0056b2;" />
+	  						<p>V&eacute;rtices: {{ coordsPoly }}</p>
+	  						<p>Puntos de visi&oacute;n: {{ puntosVision }}</p>
+							<p>Tiempo de ejecuci&oacute;n: {{ tejecucion }}</p>
+						</div>
+						<div id = "infarea">
+							<p><h3 style="font-weight:bold;">Datos de las zonas de visión</h3></p>
+							<hr style="color: #0056b2;" />
+							{% for element in zonasVision %}‏
+							  <P>Zona: {{ element }}</P>‏
+							{% end %}
+							<p class="mejorada" style="font-weight: bold;">{{ numeroIntersecciones }} zonas de visión mejoradas (Parpadeando)</p>
+							<hr class="mejorada" style="color: #0056b2;" />
+							{% for element in intersec %}‏
+								<p>Zona: {{ element }}</p>‏
+							{% end %}
+						</div>
+						<div id="poligono">
+						</div>
+					</fieldset>
+				</div>
+				<div id="botones" style="display:inline-block; padding: 2px; font-size: 12px;">
+					<a href="#" class="pdf" onclick="exportPDF();" style="text-decoration: none;"> <span>Export to PDF</span></a>
+				</div>
+				<div id="botonesSVG" style="display:inline-block; padding: 2px; font-size: 12px;">
+				</div>
+				<div id="botonesJPG" style="display:inline-block; padding: 2px; font-size: 12px;">
+					<a href="#" class="jpg" onclick="" style="text-decoration: none;"> <span>Export to JPEG</span></a>
+				</div>
+			</div>
+			<div id="footer">&copy Posicionamiento Topogr&aacute;fico, 2014<a href="http://www.twitter.com/felixmartin7" target="_blank"><img id="twitter"src="Libs/jquery/css/images/twitter.png"height="15" width="15"></a>
+				<div></div>
+			</div>
+		</div>
+	</body>
+</html>

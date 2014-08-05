@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<title>Inicio. Enviar fichero</title>
+	<head>
+		<link rel="shortcut icon" href="Libs/jquery/css/images/logo1.png" type="image/png"/>
+		<script src="Libs/jquery/js/jquery.js" type="text/javascript"></script>
+		<script type="text/javascript" src="JS/funciones.js"></script>
+		<link rel="stylesheet" type="text/css" href="Libs/jquery/css/style.css" media="screen" />
+	</head>
+	<script>
+			var errores = '{{ error }}';
+	</script>
+	<body>
+		<div id="main">
+			<div id="header">
+				<div id="h">
+					<h1>POSICIONAMIENTO <br />TOPOGR&Aacute;FICO</h1>
+					<h4>C&aacute;lculo de las &aacute;reas de visi&oacute;n de cualquier edificio</h4>
+				</div>
+				<img id = "logo" src="Libs/jquery/css/images/logo1.png" height="100" width="100">
+			</div>
+			<menu id ="menu">
+				<input id="botonFunciona" type="button" value="MANUAL" />
+				<input id="info" type="button" value="Info."/>
+			</menu>
+			<fieldset id="fmain">
+				<legend>Env&iacute;o de la superficie</legend>
+				<div id="divForm">
+				<form enctype="multipart/form-data" action="/sentPolygon" onsubmit="return validaForm()" method="post">
+					Nombre: <input id="nombre" type="text" name="name" value="{{nombreFichero}}"/>
+					<br />
+					<input id="file" type="file" name="filearg"/>
+					<br />
+					<hr style="color: #0056b2;" />
+					<input id="submit" type="submit" value="Enviar" />
+					<hr style="color: #0056b2;" />
+				</form>
+			</div>
+			<div class = "espera">Procesando datos...</div>
+			<div id="errores">{{error}}</div>
+			</fieldset>
+			<div id="faqs">
+				<h3>¿C&oacute;mo construir tu edificio?</h3>
+				<p>Guardar en un fichero de texto las coordenadas
+					de tu pol&iacute;gono en orden. Es irrelevante que el orden sea horario o 
+					antihorario, pero muy importante que est&eacute; ordenado, ya que una 
+					coordenada, correspondiente con un vertice en el edificio, formar&aacute; 
+					una recta con la siguiente y otra con la anterior. La &uacute;ltima formar&aacute;
+					una con la primera.
+					La forma de separar las coordenadas es irrelevante, el programa detectará si existen
+					coordenadas independientemente de los caracteres que haya entre ellas.
+					Una vez finalizado, guardar el fichero y enviar desde este formulario</p>
+				<h3>Formato de coordenada</h3>
+				<p>Entre par&eacute;ntesis se paradas por comas los valores de la abscisa y
+					la ordenada (x, y). En el caso de que existan decimales, separar con un punto.
+					Ejemplo: (5.4, 7.1)</p>
+				<h3>Formatos de fichero permitidos</h3> <p>.txt</p>
+			</div>
+			<div id="informacion">
+				<p>El objetivo del software es proporcionar, de manera gr&aacute;fica, las &aacute;reas
+					desde las cuales podemos tener una visi&aacute;n completa de cualquier edificio
+					tratado como un pol&iacute;gono regular. Se ofrecer&aacute;n, además, los puntos de visión
+					a partir de los cuales se han calculado las franjas, as&iacute; como el tiempo que 
+					ha tardado la ejecuci&oacute;n del programa, que depender&aacute;, obviamente, del n&uacute;mero de 
+					v&eacute;rtices que posea el edificio.</p>
+			</div>
+			<div id="footer">&copy Posicionamiento Topogr&aacute;fico, 2014<a href="http://www.twitter.com/felixmartin7" target="_blank"><img id="twitter"src="Libs/jquery/css/images/twitter.png"height="15" width="15"></a></div>
+		</div>
+	</body>
+</html>
