@@ -60,9 +60,35 @@ function volver(){
 	var r = confirm("¿Seguro que quieres salir?");
 	if (r == true)
 	{
-		window.location = "http://localhost:8888/main";
+		window.location = "http://localhost:8888/";
 		return false;
 	}
+}
+
+function exportarPNG(){
+  var html = d3.select("svg")
+        .attr("version", 1.1)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .node().parentNode.innerHTML;
+ 
+  //console.log(html);
+  var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
+ 
+  var canvas = document.querySelector("canvas"),
+	  context = canvas.getContext("2d");
+ 
+  var image = new Image;
+  image.src = imgsrc;
+  image.onload = function() {
+	  context.drawImage(image,10,10,550,550);
+ 
+	  var canvasdata = canvas.toDataURL("image/png");
+ 
+	  var a = document.createElement("a");
+	  a.download = $("#name").text()+".png";
+	  a.href = canvasdata;
+	  a.click();
+  };
 }
 
 function exportPDF(){
@@ -148,6 +174,11 @@ $(document).ready(function()
 			.attr("border", 1)
 			.attr("class", "svg");
 		
+		svgContainer.append("rect")
+			.attr("width", "100%")
+    		.attr("height", "100%")
+    		.attr("fill", "black");
+		
 		
 		//Definición de escala.
 		var xScale = d3.scale.linear()
@@ -219,17 +250,14 @@ $(document).ready(function()
        	
        	//Creación del botón exportarSVG
         var html = d3.select("svg")
-        .attr("version", 1.1)
-        .attr("xmlns", "http://www.w3.org/2000/svg")
-        .node().parentNode.innerHTML;
+	        .attr("version", 1.1)
+	        .attr("xmlns", "http://www.w3.org/2000/svg")
+	        .node().parentNode.innerHTML;
  
 	    //console.log(html);
 	    var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
 	    var img = '<a href="'+imgsrc+'"download="'+$("#name").text()+'".svg class="svgIcon" style="text-decoration: none;"><span>Export to SVG</span></a>'; 
 	    d3.select("#botonesSVG").html(img);
-
-           
-    	
 });
 
 
