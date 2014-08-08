@@ -56,14 +56,6 @@ function aparecenAreas(){
     			});
     		}
     	}	
-function volver(){
-	var r = confirm("¿Seguro que quieres salir?");
-	if (r == true)
-	{
-		window.location = "http://localhost:8888/";
-		return false;
-	}
-}
 
 function exportarPNG(){
   var html = d3.select("svg")
@@ -144,7 +136,7 @@ $(document).ready(function()
     		var r = confirm("¿Seguro que quieres volver?");
 			if (r == true)
   			{
- 				window.location = "http://localhost:8888/main";
+ 				window.location = "http://localhost:8888";
     			return false;
   			}
 		});
