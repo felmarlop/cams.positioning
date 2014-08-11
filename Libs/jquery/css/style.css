@@ -248,6 +248,16 @@ p.mejorada, hr.mejorada{
 	float:right;
 }
 
+#atrasInp{
+	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
+	position: relative;
+	right:2px;
+	border:none;
+	height:20px;
+	margin:0px;
+	float:right;
+}
+
 #exportarBoton{
 	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
 	color:#000000;
@@ -259,7 +269,7 @@ input, #atras, #areasButton, #botones, #botonesSVG, #botonesJPG{
 	cursor: pointer !important;
 }
 #faqs, #informacion, {color:#FBF5D0;}
-#botonFunciona:hover, #info:hover, #atras:hover {color: #FFFFFF;}
+#botonFunciona:hover, #info:hover, #atrasInp:hover {color: #FFFFFF;}
 #submit:hover, #areasButton:hover, #botones:hover, #botonFunciona:hover,#botonesSVG:hover, #botonesJPG:hover{
 	color:#FFFFFF;
 	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
