@@ -9,6 +9,7 @@ import tornado.web
 from tornado.template import Template
 
 import sys
+import sys.path
 import os, uuid
 import json
 
