@@ -26,7 +26,7 @@ __UPLOADS__ = "uploads/"
 class Application(tornado.web.Application):
         def __init__(self):
                 handlers = [
-                        (r"/main", mainHandler),
+                        (r"/", mainHandler),
                         (r"/sentPolygon", formHandler),
                         (r'/JS/(.*)', tornado.web.StaticFileHandler, {'path': 'JS/'}),
                         (r'/Libs/jquery/(.*)', tornado.web.StaticFileHandler, {'path': 'Libs/jquery/'}),
