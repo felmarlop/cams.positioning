@@ -11,7 +11,7 @@ from Util.File import *
 from Util.Area import *
 from Drawings.Drawings import *
 from shapely.geometry import *
-"""Polígono 1"""
+"""PolÃ­gono 1"""
 l = []
 c8 = coordenada(1,9)
 c1 = coordenada(1,2)
@@ -28,7 +28,7 @@ l.append(c8)
 l.append(c5)
 l.append(c6)
 p = poligono(l).ordena()
-"""Polígono 2"""
+"""PolÃ­gono 2"""
 l2 = []
 cc4 = coordenada(4,6)
 cc5 = coordenada(5,8)
@@ -59,7 +59,7 @@ l2.append(cc13)
 l2.append(cc14)
 l2.append(cc6)
 p2 = poligono(l2).ordena()
-"""OR#DENAR Y OPTIMIZAR SIEMPRE LOS POLÍGONOS CREADOS"""
+"""OR#DENAR Y OPTIMIZAR SIEMPRE LOS POLÃ�GONOS CREADOS"""
 ain = time.time()
 #pp = stringToPolygon("(1,2) (2,2) (3,2) (5,4) (4,4)(3.5, 2.7) (3, 3.2) (3,4) (3.5, 3.8) (5,6) (5,6) (5,7)")
 #pp = stringToPolygon("(1,2) (2,2) (3,2) (5,3) (5,4) (3.5, 3.5) (3.5, 4.5) (5,6) (5,6) (5,7)")
@@ -73,27 +73,27 @@ ain = time.time()
 #pp = stringToPolygon("(1.5,1)(1.3, 2)(2.2, 2.2)(2, 3)(3, 4)(3.5, 3)(3, 2.5)(4.3, 2.3)(4.3, 2.1)(3.5, 1.8)(3.6, 1.5)(4.5, 1.5)(4.4, 1)")
 #pp =stringToPolygon("(1,2) (2,2) (3,2) (5,4) (4,4) (3.5,2.7)(3, 3.2) (3,4) (3.5, 3.8) (5,6) (5,6) (5,7)")
 #pp =stringToPolygon("(4, 5) (7,4) (6.5, 2) (7,1) (6,1) (6,2) (5, 2) (5.5, 3) (6, 2.5) (6.5, 3) (5, 4.5) (4.5, 1.5) (5.5, 1.5) (4,1) (3, 1) (3.5, 1.5)(3.5, 2)(4,2) (3.5, 3)(3,2) (3,4)")
-#pp =stringToPolygon("(1,1)(20, 1)(35, 3)(25, 3)(20, 5)(28, 5)(35, 9)(35, 10)(25, 7)(15, 7)")
+pp =stringToPolygon("(1,1)(20, 1)(35, 3)(25, 3)(20, 5)(28, 5)(35, 9)(35, 10)(25, 7)(15, 7)")
 #pp = p2
 #pp = p
 #pp.drawing()
 
-#Creación del polígono
-pp = stringToPolygon("(9,6) (12,21) (13, 14)(20, 14)(15, 10)(10, 10)(10, 7)(14,3)(14,7.5)(12,7)(12.7,5)(11,8)(15,8)(15, 1)")
+#CreaciÃ³n del polÃ­gono
+#pp = stringToPolygon("(9,6) (12,21) (13, 14)(20, 14)(15, 10)(10, 10)(10, 7)(14,3)(14,7.5)(12,7)(12.7,5)(11,8)(15,8)(15, 1)")
 
-#Ordenamos el polígono
+#Ordenamos el polÃ­gono
 pO = pp.ordena()
 
-#Calculamos los puntos o las posiciones de visión
+#Calculamos los puntos o las posiciones de visiÃ³n
 conjuntoPosiciones = posicionesTopograficas(pO)
 
-#A partir de las posiciones creamos las áreas a partir de dichos puntos.
+#A partir de las posiciones creamos las Ã¡reas a partir de dichos puntos.
 l = []
 for ps in conjuntoPosiciones:
     a = areaOptima(pO, ps)
     l.append(a)
 b = time.time()
-print("Tiempo de ejecución: "+str(b - ain)+" segundos")
+print("Tiempo de ejecuciÃ³n: "+str(b - ain)+" segundos")
 
 #Dibujamos la salida
 drawAreas(pO, l)
