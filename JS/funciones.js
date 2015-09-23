@@ -8,11 +8,11 @@ function validaForm(){
 	var divErrores = $("#errores");
 	//Nombre no puede estar vacío
 	if (nombre == ""){
-		errores = errores + 'Nombre del Pol\u00edgono est\u00e1 vac\u00edo.<br>';
+		errores = errores + 'Access code can not be empty<br>';
 	}
 	//Comprobar la extensión
 	if (file == ''){
-		errores = errores + 'No se ha seleccionado ning\u00fan archivo.<br>';	
+		errores = errores + 'No selected file<br>';	
 	}else{
 		extensiones = new Array(".txt"); 
 		extension = (file.substring(file.lastIndexOf("."))).toLowerCase();
@@ -24,7 +24,7 @@ function validaForm(){
 	   		}
 	   	}
 	   if (permitida == false){
-	   	errores = errores + "Extensi\u00f3n de archivo err\u00f3nea. Extensiones soportadas: "+extensiones+"<br>";
+	   	errores = errores + "Wrong file extension. Supported extensions: "+extensiones+"<br>";
 	   }
 	}
 	if(errores == ''){
@@ -36,9 +36,30 @@ function validaForm(){
 		return false;
 	}
 }
- 
 
-function aparecenAreas(){
+function selectedFiles(){
+	var input = $("#file").val();
+	input = input.split("\\");
+	input = input[input.length-1];
+	var elementos = document.getElementById("filess");
+	elementos.innerHTML = "";
+	crear_div("filess", elementos, input)
+}
+
+function crear_div(clase, padre, informacion) {
+    //Escapamos la variable informacion para evitar posibles XSS
+    informacion = escape(informacion);
+    //Creamos el div
+    var div = document.createElement("div");
+    //Le agregamos al div sus propiedades
+    div.setAttribute("class", clase);
+    div.setAttribute("title", "click para eliminar");
+    //Agregamos el div al padre
+    padre.appendChild(div);
+    div.innerHTML = informacion;
+}
+
+    function aparecenAreas(){
     		var displayAr = $("polygon.ar").css("display");
     		if (displayAr == "none"){
     			$("polygon.ar").fadeIn('slow', function(){
@@ -100,7 +121,7 @@ function exportPDF(){
 $(document).ready(function()
     {	//Botones Info y Faqs.
     	$("div.espera").hide();
-    	$("#botonFunciona").click(function () {
+    	$("#features").click(function () {
     		displayingFaqs = $("#faqs").css("display");
     		displayingInfo = $("#informacion").css("display");
     		if (displayingFaqs == "none"){
@@ -115,7 +136,7 @@ $(document).ready(function()
     			});
     		}
     	});
-    	$("#info").click(function () {
+    	$("#about").click(function () {
     		displayingFaqs = $("#faqs").css("display");
     		displayingInfo = $("#informacion").css("display");
     		if (displayingInfo == "none"){

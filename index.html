@@ -40,39 +40,39 @@
 					<h1>POSICIONAMIENTO <br />TOPOGR&Aacute;FICO</h1>
 					<h4>C&aacute;lculo de las &aacute;reas de visi&oacute;n de cualquier superficie</h4>
 				</div>
-				<img id="logo" src="Libs/jquery/css/images/logo1.png" height="100" width="100">
+				<img id="logo" src="Libs/jquery/css/images/cam.png" height="100" width="160">
 			</div>
 			<menu id ="menu">
 				<div id="atras" class="ui-widget-header" style="display:inline-block; padding: 4px; padding-bottom: 0px;">
-						<input id="atrasInp" type="button" value="Nuevo"/>
+						<input id="atrasInp" type="button" value="Nuevo" size="17m"/>
 						<a href="#" class="ui-icon ui-icon-plus" style="position: relative; left:3px; top:1px;"></a>
 				</div>
 			</menu>
 			<div>
-				<div id="mensaje">{{ nombreFichero.upper() }} se envi&oacute; correctamente.</div>
+				<div id="mensaje">{{ nombreFichero.upper() }} was submitted.</div>
 				<div id="datos">
 					<fieldset>
-  						<legend>Datos de la superficie</legend>
+  						<legend>Building data</legend>
   						<div id = "inf">
   							<p><h3 id="name" style="font-weight:bold;">{{ nombreFichero.upper() }}</h3></p>
-	  						<p>{{ numeroAreas }} zonas de visi&oacute;n</p>
+	  						<p>{{ numeroAreas }} viewing areas</p>
 	  						<hr style="color: #0056b2;" />
-							<input id="areasButton" type="button" onclick="aparecenAreas()" value="Mostrar" />
+							<input id="areasButton" type="button" onclick="aparecenAreas()" value="Run" />
 							<hr style="color: #0056b2;" />
-	  						<p>V&eacute;rtices: {{ coordsPoly }}</p>
-	  						<p>Puntos de visi&oacute;n: {{ puntosVision }}</p>
-							<p>Tiempo de ejecuci&oacute;n: {{ tejecucion }}</p>
+	  						<p>Vertices: {{ coordsPoly }}</p>
+	  						<p>Viewpoints: {{ puntosVision }}</p>
+							<p>Execution time: {{ tejecucion }}</p>
 						</div>
 						<div id = "infarea">
-							<p><h3 style="font-weight:bold;">Datos de las zonas de visión</h3></p>
+							<p><h3 style="font-weight:bold;">Viewing areas data</h3></p>
 							<hr style="color: #0056b2;" />
-							{% for element in zonasVision %}‏
-							  <P>Zona: {{ element }}</P>‏
+							{% for element in zonasVision %}
+							  <P>Area: {{ element }}</P>
 							{% end %}
-							<p class="mejorada" style="font-weight: bold;">{{ numeroIntersecciones }} zonas de visión mejoradas (Parpadeando)</p>
+							<p class="mejorada" style="font-weight: bold;">{{ numeroIntersecciones }} viewing areas improved (Flashing)</p>
 							<hr class="mejorada" style="color: #0056b2;" />
-							{% for element in intersec %}‏
-								<p>Zona: {{ element }}</p>‏
+							{% for element in intersec %}
+								<p>Area: {{ element }}</p>
 							{% end %}
 						</div>
 						<div id="poligono">

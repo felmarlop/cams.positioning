@@ -106,14 +106,12 @@ fieldset, #fmain{border-color:#3A8104; margin-bottom: 0px;}
 #icon-folder{
 	float:left;
 }
-#fmain{margin-top: 35px;}
+#fmain{margin-top: 10px;}
 
 #file{
-	margin-top: 5px;
-	border-style: solid;
-	border-width:1px;
-	border-radius:6px 6px 6px 6px;
-	background-color: #FFFFFF;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
 }
 hr{margin-bottom:5px;}
 #submit, #areasButton{
@@ -129,16 +127,16 @@ hr{margin-bottom:5px;}
 }
 
 #errores{
-	text-align:left;
+	text-align:center;
 	color:#FF0000;
 	max-width:280px;
 	margin-bottom:10px;
-	margin-left:360px;
+	margin-left:345px;
 }
 
 #faqs, #informacion{
 	display:none;
-	background:#363636;
+	background:#D8D8D8;
 	padding:3px;
 	margin-bottom: 5px;
 	position:relative;
@@ -149,6 +147,27 @@ hr{margin-bottom:5px;}
 #menu{
 	margin-top:0px;
 }
+
+ul#menu {
+    padding: 0;
+    margin-left: 5px;
+}
+
+ul#menu li {
+	margin: 5px;
+    display: inline;
+}
+
+ul#menu li a {
+    color: #111111;
+    text-decoration: none;
+	text-shadow: -1px -1px #cccccc;
+}
+
+ul#menu li a:hover {
+    color: #3a8104;
+}
+
 #datos #inf{
 	border-radius: 10px 0px 0px 10px;
 	border:1px solid;
@@ -205,8 +224,8 @@ div.espera{
 @-webkit-keyframes anim
 {
 0%   {color:#363636;}
-75%  {color:green;}
-100% {color:green;}
+75%  {color:white;}
+100% {color:white;}
 }
 
 polygon.ar{
@@ -234,14 +253,15 @@ p.mejorada, hr.mejorada{
 	border: 2px solid grey;
 	border-radius: 3px 3px 3px 3px;
 }
-#botonFunciona, #info, #atras{
+#botonLogin, #atras{
+	font-size:17px;
 	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
 	position: relative;
-	right:2px;
-	box-shadow: 0px 2px 6px #000;
+	right:0px;
+	box-shadow: 0px 2px 0px #000;
 	color:#000000;
 	border:none;
-	height:20px;
+	height:22px;
 	border-radius: 0px 0px 0px 6px;
 	margin:0px;
 	bottom:0px;
@@ -249,6 +269,7 @@ p.mejorada, hr.mejorada{
 }
 
 #atrasInp{
+	font-size:17px;
 	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
 	border:none;
 	height:20px;
@@ -267,7 +288,7 @@ input, #atras, #areasButton, #botones, #botonesSVG, #botonesJPG{
 	cursor: pointer !important;
 }
 #faqs, #informacion, {color:#FBF5D0;}
-#botonFunciona:hover, #info:hover, #atrasInp:hover {color: #FFFFFF;}
+#botonLogin:hover, #atrasInp:hover {color: #FFFFFF;}
 #submit:hover, #areasButton:hover, #botones:hover, #botonFunciona:hover,#botonesSVG:hover, #botonesJPG:hover{
 	color:#FFFFFF;
 	background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x;
@@ -281,11 +302,21 @@ input, #atras, #areasButton, #botones, #botonesSVG, #botonesJPG{
 	color:#999999;
 	text-align:center;
 	font-size:small;
-	background-color:#285C00;
+	background-color:#3a8104;
 	border-radius:0px 0px 9px 9px;
 	margin-top:5px;
 }
 
+#upload{
+	margin: 0 auto;
+	margin-top: 5px;
+	background: url("images/upload.png") #FBF5D0 center center no-repeat;
+	background-size: 100px 80px;
+	width: 100px;
+	border-radius: 5px;
+	height: 100px;
+	box-shadow: 0 0 5px #FBF5D0;;
+}
 .pdf {
      background: url(images/pdf-icon.png) no-repeat;
      background-position: bottom left;
@@ -307,4 +338,15 @@ input, #atras, #areasButton, #botones, #botonesSVG, #botonesJPG{
     background-position: bottom left;
     background-attachment: scroll;
     padding-left: 20px;
+}
+
+.filess {
+    background: #3a8104;
+    display: inline-block;
+    margin: 5px;
+    color: #FFF;
+    line-height: 25px;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000;
 }

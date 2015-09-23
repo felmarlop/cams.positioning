@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*
+# -*- coding: utf-8 -*-
 import datetime
 import time
 
@@ -14,6 +14,7 @@ import json
 
 from Util.File import *
 from Util.Area import *
+from Clases.Poligono import poligono
 
 portNumber = int(8888)
 
@@ -25,6 +26,9 @@ __UPLOADS__ = "uploads/"
 
 class Application(tornado.web.Application):
         def __init__(self):
+                print("#####################################")
+                print("Server running now")
+                print("#####################################")
                 handlers = [
                         (r"/", mainHandler),
                         (r"/sentPolygon", formHandler),
@@ -71,13 +75,23 @@ class formHandler(tornado.web.RequestHandler):
         fh.write(fileinfo['body'])"""
         #Validación:
         if self.name == '':
-            errores = errores + 'Nombre del Pol\u00edgono est\u00e1 vac\u00edo.<br>'
+            errores = errores + 'Access code can not be empty<br>'
+        if self.name != 'ABCD1234':
+            errores = errores + 'No valid access code<br>'
         if self.extn not in self.extensiones:
-            errores = errores + 'Extensi\u00f3n de archivo err\u00f3nea. Extensiones soportadas: '+self.extensiones+'<br>'
+            errores = errores + 'Wrong extension. Supported extensions: '+self.extensiones+'<br>'
         #Creación del poígono o errores. Volver al formulario si los hay.
         resFile = stringToPolygon(self.fileinfo['body'])
         if isinstance(resFile, str):
             errores = errores + resFile
+            print("#####################################")
+            print("An error occurred 1")
+            print("#####################################")
+            self.render("main.html", error=errores, nombreFichero=self.name)
+        elif errores != '':
+            print("#####################################")
+            print("An error occurred 2")
+            print("#####################################")
             self.render("main.html", error=errores, nombreFichero=self.name)
         else:
             ini = time.time()
@@ -116,7 +130,7 @@ class formHandler(tornado.web.RequestHandler):
             fin = time.time()
             tiempo = str(round(fin - ini, 3))+" segundos"
             print("#####################################")
-            print(self.name+" ha sido enviado con éxito")
+            print(self.name+" sent successfully")
             print("#####################################")
             #Creación de la escala.
             porcentajeAbscisa = (polyOrd.coordenadaMayorAbscisa().getX() - 
@@ -153,18 +167,3 @@ def main():
 
 if __name__ == "__main__":
         main()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
